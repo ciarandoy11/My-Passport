@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Tutorial Overlay Example</title>
+    <link rel="stylesheet" href="tutorial-styles.css">
+</head>
+<body>
+    <!-- Sample website content -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo" data-tutorial="step-1">
+                <h1>MyWebsite</h1>
+            </div>
+            <ul class="nav-menu" data-tutorial="step-2">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="start-tutorial-btn" onclick="startTutorial()">Start Tutorial</button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero" data-tutorial="step-3">
+            <h2>Welcome to Our Website</h2>
+            <p>This is a sample website to demonstrate the tutorial overlay system.</p>
+            <button class="cta-button" data-tutorial="step-4">Get Started</button>
+        </section>
+
+        <section class="features" data-tutorial="step-5">
+            <h3>Our Features</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Feature 1</h4>
+                    <p>Description of feature 1</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Feature 2</h4>
+                    <p>Description of feature 2</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Feature 3</h4>
+                    <p>Description of feature 3</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter" data-tutorial="step-6">
+            <h3>Subscribe to our Newsletter</h3>
+            <p>Stay updated with our latest news and offers!</p>
+            <div class="email-signup">
+                <input type="email" id="newsletter-email" placeholder="Enter your email" />
+                <button id="subscribe-btn">Subscribe</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Tutorial Overlay System -->
+    <div id="tutorial-overlay" class="tutorial-overlay hidden">
+        <div class="tutorial-backdrop"></div>
+        <div class="tutorial-tooltip">
+            <div class="tutorial-content">
+                <h4 id="tutorial-title">Tutorial Step</h4>
+                <p id="tutorial-description">Tutorial description goes here.</p>
+                <div class="tutorial-controls">
+                    <button id="tutorial-prev" onclick="previousStep()">Previous</button>
+                    <span id="tutorial-progress">1 / 5</span>
+                    <button id="tutorial-next" onclick="nextStep()">Next</button>
+                    <button id="tutorial-skip" onclick="skipTutorial()">Skip Tutorial</button>
+                </div>
+            </div>
+            <div class="tutorial-arrow"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="tutorial-config.js"></script>
+    <script src="tutorial-script.js"></script>
+    <script>
+        // Initialize tutorial system when page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            initializeTutorial();
+        });
+    </script>
+</body>
+</html>
+

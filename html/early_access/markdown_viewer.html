@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      padding: 32px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #007BFF;
+    }
+    pre, code {
+      background: #f0f0f0;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 1em;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: underline;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="./" class="back-link">&larr; Back to Home</a>
+    <div id="bug-report-form-container" style="display:none; margin-top:40px;">
+        <h2 style="color:#cb0c1f;">Report a Bug</h2>
+        <form id="bug-report-form" style="display:flex; flex-direction:column; gap:18px;">
+          <div>
+            <label for="bug-name">Your Name (optional):</label><br>
+            <input type="text" id="bug-name" name="bug-name" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+          </div>
+          <div>
+            <label for="bug-email">Your Email (optional):</label><br>
+            <input type="email" id="bug-email" name="bug-email" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+          </div>
+          <div>
+            <label for="bug-severity"><b>Severity:</b></label><br>
+            <select id="bug-severity" name="bug-severity" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+              <option value="Critical">Critical - System-breaking or data-loss</option>
+              <option value="High">High - Major functionality affected</option>
+              <option value="Medium" selected>Medium - Minor functionality affected</option>
+              <option value="Low">Low - Cosmetic or non-critical</option>
+            </select>
+          </div>
+          <div>
+              <label for="bug-title">Bug Title:</label><br>
+              <input type="text" id="bug-title" name="bug-title" required style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+            </div>
+          <div>
+            <label for="bug-desc"><b>Bug Description:</b></label><br>
+            <textarea id="bug-desc" name="bug-desc" required rows="5" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;"></textarea>
+          </div>
+          <button type="submit" style="background:#cb0c1f; color:white; font-weight:bold; border:none; border-radius:6px; padding:12px 0; font-size:1.1em; cursor:pointer;">Send Bug Report</button>
+          <div id="bug-report-message" style="margin-top:10px; color:#28a745; font-weight:bold;"></div>
+        </form>
+        <hr style="margin:32px 0;">
+      </div>
+      <div id="feature-request-form-container" style="display:none; margin-top:40px;">
+        <h2 style="color:#250ccb;">Request a Feature</h2>
+        <form id="feature-request-form" style="display:flex; flex-direction:column; gap:18px;">
+          <div>
+            <label for="feature-request-name">Your Name (optional):</label><br>
+            <input type="text" id="feature-request-name" name="feature-request-name" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+          </div>
+          <div>
+            <label for="feature-request-email">Your Email (optional):</label><br>
+            <input type="email" id="feature-request-email" name="feature-request-email" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+          </div>
+          <div>
+            <label for="feature-request-title">Feature Title:</label><br>
+            <input type="text" id="feature-request-title" name="feature-request-title" required style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+          </div>
+          <div>
+            <label for="feature-request-desc"><b>Feature Description:</b></label><br>
+            <textarea id="feature-request-desc" name="feature-request-desc" required rows="5" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;"></textarea>
+          </div>
+          <button type="submit" style="background:#250ccb; color:white; font-weight:bold; border:none; border-radius:6px; padding:12px 0; font-size:1.1em; cursor:pointer;">Send Feature Request</button>
+          <div id="feature-request-message" style="margin-top:10px; color:#28a745; font-weight:bold;"></div>
+        </form>
+        <hr style="margin:32px 0;">
+      </div>
+    <div id="markdown-content">Loading...</div>
+  </div>
+  <script src="marked.min.js"></script>
+  <script>
+    // Get file from query string
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file');
+    if (!file) {
+      document.getElementById('markdown-content').innerHTML = '<b>No file specified.</b>';
+    } else {
+      fetch(file)
+        .then(response => {
+          if (!response.ok) throw new Error('File not found');
+          return response.text();
+        })
+        .then(md => {
+          document.getElementById('markdown-content').innerHTML = marked.parse(md);
+          // Show bug report form if viewing bugs.md
+          if (file.toLowerCase() === 'bugs.md') {
+            document.getElementById('bug-report-form-container').style.display = 'block';
+          }
+
+          // Show feature request form if viewing roadmap.md
+          if (file.toLowerCase() === 'roadmap.md') {
+            document.getElementById('feature-request-form-container').style.display = 'block';
+          }
+        })
+        .catch(err => {
+          document.getElementById('markdown-content').innerHTML = '<b>Error loading file:</b> ' + err.message;
+        });
+    }
+
+    // Bug report form logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('bug-report-form');
+      const featureRequestForm = document.getElementById('feature-request-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const name = document.getElementById('bug-name').value.trim();
+          const email = document.getElementById('bug-email').value.trim();
+          const desc = document.getElementById('bug-desc').value.trim();
+          const title = document.getElementById('bug-title').value.trim();
+          const severity = document.getElementById('bug-severity').value;
+          if (!desc) {
+            document.getElementById('bug-report-message').textContent = 'Please enter a bug description.';
+            return;
+          }
+          const formData = new FormData();
+          formData.append('name', name);
+          formData.append('email', email);
+          formData.append('desc', desc);
+          formData.append('severity', severity);
+          formData.append('title', title);
+
+          fetch('report_bug.php', {
+            method: 'POST',
+            body: formData
+          })
+          .then(r => r.json())
+          .then(data => {
+            document.getElementById('bug-report-message').textContent = data.message;
+            if (data.success) form.reset();
+          })
+          .catch(() => {
+            document.getElementById('bug-report-message').textContent = 'Network error.';
+          });
+        });
+      }
+      if (featureRequestForm) {
+        featureRequestForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const name = document.getElementById('feature-request-name').value.trim();
+          const email = document.getElementById('feature-request-email').value.trim();
+          const desc = document.getElementById('feature-request-desc').value.trim();
+          const title = document.getElementById('feature-request-title').value.trim();
+          const formData = new FormData();
+          formData.append('name', name);
+          formData.append('email', email);
+          formData.append('title', title);
+          formData.append('desc', desc);
+
+          fetch('report_feature_request.php', {
+            method: 'POST',
+            body: formData
+          })
+          .then(r => r.json())
+          .then(data => {
+            document.getElementById('feature-request-message').textContent = data.message;
+            if (data.success) featureRequestForm.reset();
+          })
+          .catch(() => {
+            document.getElementById('feature-request-message').textContent = 'Network error.';
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

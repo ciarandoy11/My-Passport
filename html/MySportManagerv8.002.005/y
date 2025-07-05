@@ -1,0 +1,43 @@
+
+	session_start(); // Start the session
+
+	// Check if user is logged in
+	if (!isset($_SESSION['user_id'])) {
+	    header("Location: login.php"); // Redirect to login if not logged in
+	    exit();
+	}
+
+	// Get user ID from session
+	$userId = $_SESSION['user_id'];
+
+	// Database connection
+	$servername = "localhost";
+	$username = "root";
+	$password = "test";
+	$dbname = "pod_rota";
+
+	$conn = new mysqli($servername, $username, $password, $dbname);
+
+	// Check for connection error
+	if ($conn->connect_error) {
+	    die("Connection failed: " . htmlspecialchars($conn->connect_error)); // Prevent XSS by escaping
+	}
+
+	// Fetch user data
+	$sql = "SELECT username, club, email, `type-admin`, `type-coach` FROM users WHERE id = ?";
+	$stmt = $conn->prepare($sql);
+	$stmt->bind_param("i", $userId);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$user = $result->fetch_assoc();
+
+	if (!$user) {
+	    die(json_encode(["error" => "User not found"]));
+	}
+
+	$userName = htmlspecialchars($user['username']); // HTML escape user data
+	$club = htmlspecialchars($user['club']);
+	$email = htmlspecialchars($user['email']);
+	$typeAdmin = htmlspecialchars($user['type-admin']);
+	$typeCoach = htmlspecialchars($user['type-coach']);
+	$stmt->close();

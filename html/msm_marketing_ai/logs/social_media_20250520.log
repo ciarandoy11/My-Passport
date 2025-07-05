@@ -1,0 +1,14 @@
+2025-05-20 11:23:07,250 - SocialMediaPoster - ERROR - Failed to initialize TikTok client: Please use 'custom_device_id' instead of 'custom_did'
+2025-05-20 11:31:11,234 - SocialMediaPoster - ERROR - Failed to initialize TikTok client: Please use 'custom_device_id' instead of 'custom_did'
+2025-05-20 13:00:07,395 - SocialMediaPoster - INFO - Would post to Instagram: None
+2025-05-20 13:34:39,418 - SocialMediaPoster - ERROR - Failed to post to Reddit: invalid_grant error processing request
+2025-05-20 14:00:03,150 - SocialMediaPoster - ERROR - Reddit authentication failed: invalid_grant error processing request
+2025-05-20 14:00:30,575 - SocialMediaPoster - ERROR - Reddit authentication failed: invalid_grant error processing request
+2025-05-20 14:00:52,757 - SocialMediaPoster - ERROR - Reddit authentication failed: invalid_grant error processing request
+2025-05-20 14:02:12,021 - SocialMediaPoster - ERROR - Reddit authentication failed: invalid_grant error processing request
+2025-05-20 14:02:20,383 - SocialMediaPoster - INFO - Would post to Instagram: None
+2025-05-20 14:02:20,389 - SocialMediaPoster - INFO - With image: None
+2025-05-20 21:00:56,680 - SocialMediaPoster - INFO - Would post to Instagram: None
+2025-05-21 00:02:22,432 - SocialMediaPoster - INFO - Would post to Instagram: None
+2025-05-21 02:00:57,141 - SocialMediaPoster - INFO - Would post to Instagram: None
+2025-05-21 02:00:57,158 - SocialMediaPoster - INFO - With image: None

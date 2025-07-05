@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "122887101374",
+    "project_id": "dolphin-pod-a9dcc",
+    "storage_bucket": "dolphin-pod-a9dcc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122887101374:android:ccebb901e74c1c4e99f7ef",
+        "android_client_info": {
+          "package_name": "com.dolphin_pod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGI9Fr4upktkUv6RtkloCH3T9gB9SWvyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

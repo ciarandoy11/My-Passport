@@ -1,0 +1,43 @@
+2025-05-19 19:55:36,767 - instabot version: 0.117.0 - INFO - Instabot version: 0.117.0 Started
+2025-05-19 19:55:36,770 - instabot version: 0.117.0 - DEBUG - Bot imported from C:\Users\ciara\AppData\Roaming\Python\Python312\site-packages\instabot\bot\bot.py
+2025-05-19 19:55:36,794 - instabot version: 0.117.0 - INFO - Not yet logged in starting: PRE-LOGIN FLOW!
+2025-05-19 19:55:37,499 - instabot version: 0.117.0 - DEBUG - POST to endpoint: accounts/get_prefill_candidates/ returned response: <Response [200]>
+2025-05-19 19:55:38,157 - instabot version: 0.117.0 - DEBUG - POST to endpoint: qe/sync/ returned response: <Response [200]>
+2025-05-19 19:55:38,852 - instabot version: 0.117.0 - DEBUG - POST to endpoint: launcher/sync/ returned response: <Response [200]>
+2025-05-19 19:55:39,369 - instabot version: 0.117.0 - DEBUG - POST to endpoint: accounts/contact_point_prefill/ returned response: <Response [200]>
+2025-05-19 19:55:40,874 - instabot version: 0.117.0 - DEBUG - POST to endpoint: accounts/login/ returned response: <Response [400]>
+2025-05-19 19:55:40,888 - instabot version: 0.117.0 - DEBUG - Responsecode indicates error; response content: b'{"message":"You\'ll need to update Instagram to the latest version before you can use the app.","status":"fail","error_type":"block_eu_user_login_in_old_app"}'
+2025-05-19 19:55:40,897 - instabot version: 0.117.0 - ERROR - Request returns 400 error!
+2025-05-19 19:55:40,906 - instabot version: 0.117.0 - INFO - Instagram's error message: You'll need to update Instagram to the latest version before you can use the app.
+2025-05-19 19:55:40,919 - instabot version: 0.117.0 - INFO - Error type: block_eu_user_login_in_old_app
+2025-05-19 19:55:40,930 - instabot version: 0.117.0 - ERROR - Failed to login go to instagram and change your password
+2025-05-19 19:55:40,942 - instabot version: 0.117.0 - INFO - Username or password is incorrect.
+2025-05-19 20:01:10,728 - instabot version: 0.117.0 - INFO - Instabot version: 0.117.0 Started
+2025-05-19 20:01:10,731 - instabot version: 0.117.0 - DEBUG - Bot imported from C:\Users\ciara\AppData\Roaming\Python\Python312\site-packages\instabot\bot\bot.py
+2025-05-19 20:01:10,754 - instabot version: 0.117.0 - INFO - Not yet logged in starting: PRE-LOGIN FLOW!
+2025-05-19 20:01:11,302 - instabot version: 0.117.0 - DEBUG - POST to endpoint: accounts/get_prefill_candidates/ returned response: <Response [200]>
+2025-05-19 20:01:11,973 - instabot version: 0.117.0 - DEBUG - POST to endpoint: qe/sync/ returned response: <Response [200]>
+2025-05-19 20:01:12,554 - instabot version: 0.117.0 - DEBUG - POST to endpoint: launcher/sync/ returned response: <Response [200]>
+2025-05-19 20:01:13,145 - instabot version: 0.117.0 - DEBUG - POST to endpoint: accounts/contact_point_prefill/ returned response: <Response [200]>
+2025-05-19 20:01:14,505 - instabot version: 0.117.0 - DEBUG - POST to endpoint: accounts/login/ returned response: <Response [400]>
+2025-05-19 20:01:14,514 - instabot version: 0.117.0 - DEBUG - Responsecode indicates error; response content: b'{"message":"You\'ll need to update Instagram to the latest version before you can use the app.","status":"fail","error_type":"block_eu_user_login_in_old_app"}'
+2025-05-19 20:01:14,527 - instabot version: 0.117.0 - ERROR - Request returns 400 error!
+2025-05-19 20:01:14,538 - instabot version: 0.117.0 - INFO - Instagram's error message: You'll need to update Instagram to the latest version before you can use the app.
+2025-05-19 20:01:14,552 - instabot version: 0.117.0 - INFO - Error type: block_eu_user_login_in_old_app
+2025-05-19 20:01:14,563 - instabot version: 0.117.0 - ERROR - Failed to login go to instagram and change your password
+2025-05-19 20:01:14,573 - instabot version: 0.117.0 - INFO - Username or password is incorrect.
+2025-05-19 20:02:26,607 - instabot version: 0.117.0 - INFO - Instabot version: 0.117.0 Started
+2025-05-19 20:02:26,610 - instabot version: 0.117.0 - DEBUG - Bot imported from C:\Users\ciara\AppData\Roaming\Python\Python312\site-packages\instabot\bot\bot.py
+2025-05-19 20:02:26,634 - instabot version: 0.117.0 - INFO - Not yet logged in starting: PRE-LOGIN FLOW!
+2025-05-19 20:02:27,254 - instabot version: 0.117.0 - DEBUG - POST to endpoint: accounts/get_prefill_candidates/ returned response: <Response [200]>
+2025-05-19 20:02:27,896 - instabot version: 0.117.0 - DEBUG - POST to endpoint: qe/sync/ returned response: <Response [200]>
+2025-05-19 20:02:28,767 - instabot version: 0.117.0 - DEBUG - POST to endpoint: launcher/sync/ returned response: <Response [200]>
+2025-05-19 20:02:29,374 - instabot version: 0.117.0 - DEBUG - POST to endpoint: accounts/contact_point_prefill/ returned response: <Response [200]>
+2025-05-19 20:02:30,668 - instabot version: 0.117.0 - DEBUG - POST to endpoint: accounts/login/ returned response: <Response [400]>
+2025-05-19 20:02:30,686 - instabot version: 0.117.0 - DEBUG - Responsecode indicates error; response content: b'{"message":"You\'ll need to update Instagram to the latest version before you can use the app.","status":"fail","error_type":"block_eu_user_login_in_old_app"}'
+2025-05-19 20:02:30,696 - instabot version: 0.117.0 - ERROR - Request returns 400 error!
+2025-05-19 20:02:30,708 - instabot version: 0.117.0 - INFO - Instagram's error message: You'll need to update Instagram to the latest version before you can use the app.
+2025-05-19 20:02:30,722 - instabot version: 0.117.0 - INFO - Error type: block_eu_user_login_in_old_app
+2025-05-19 20:02:30,732 - instabot version: 0.117.0 - ERROR - Failed to login go to instagram and change your password
+2025-05-19 20:02:30,744 - instabot version: 0.117.0 - INFO - Username or password is incorrect.
+2025-05-19 21:35:33,414 - SocialMediaPoster - ERROR - Failed to initialize TikTok client: Please use 'custom_device_id' instead of 'custom_did'

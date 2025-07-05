@@ -1,0 +1,19 @@
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+RewriteEngine On
+
+# Redirect /path/file.php to /path/file (only if HTML is requested, for frontend)
+RewriteCond %{THE_REQUEST} \s/([^\s]+)\.php[\s?] [NC]
+RewriteCond %{HTTP_ACCEPT} text/html [NC]
+RewriteRule ^(.+)\.php$ /$1 [R=301,L]
+
+# If the requested file or directory exists, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Prevent infinite loop: skip if URL already ends with .php
+RewriteCond %{REQUEST_URI} !\.php$ [NC]
+
+# Otherwise, rewrite pretty URLs to .php (preserve query string)
+RewriteRule ^(.+)$ $1.php [QSA,L]

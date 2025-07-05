@@ -1,0 +1,13 @@
+{
+    "name": "ciarandoy/my-sport-manager",
+    "description": "An app to aid sports club in running their club",
+    "require": {
+        "stripe/stripe-php": "^16.6",
+        "phpmailer/phpmailer": "^6.9",
+        "gocardless/gocardless-pro": "^4.28",
+        "phpoffice/phpexcel": "^1.8",
+        "phpoffice/phpspreadsheet": "^1.25",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "license": "proprietary"
+}

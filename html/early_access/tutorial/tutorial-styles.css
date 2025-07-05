@@ -1,0 +1,195 @@
+/* Tutorial Overlay Styles */
+.tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.tutorial-overlay.active {
+    pointer-events: all;
+}
+
+.tutorial-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tutorial-overlay.active .tutorial-backdrop {
+    opacity: 1;
+}
+
+.tutorial-tooltip {
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 350px;
+    min-width: 280px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    pointer-events: all;
+}
+
+.tutorial-overlay.active .tutorial-tooltip {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.tutorial-content {
+    padding: 1.5rem;
+}
+
+.tutorial-content h4 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.tutorial-content p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.tutorial-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tutorial-controls button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#tutorial-prev {
+    background: #95a5a6;
+    color: white;
+}
+
+#tutorial-prev:hover:not(:disabled) {
+    background: #7f8c8d;
+}
+
+#tutorial-prev:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#tutorial-next {
+    background: #3498db;
+    color: white;
+}
+
+#tutorial-next:hover {
+    background: #2980b9;
+}
+
+#tutorial-skip {
+    background: #e74c3c;
+    color: white;
+}
+
+#tutorial-skip:hover {
+    background: #c0392b;
+}
+
+#tutorial-progress {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: bold;
+}
+
+.tutorial-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+}
+
+/* Arrow positions */
+.tutorial-arrow.top {
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: white;
+}
+
+.tutorial-arrow.bottom {
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: white;
+}
+
+.tutorial-arrow.left {
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: white;
+}
+
+.tutorial-arrow.right {
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: white;
+}
+
+/* Highlighted element styles */
+.tutorial-highlight {
+    position: relative;
+    z-index: 9999;
+    box-shadow: 0 0 0 4px #3498db, 0 0 0 8px rgba(52, 152, 219, 0.3);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Utility classes */
+.hidden {
+    display: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .tutorial-tooltip {
+        max-width: 280px;
+        min-width: 250px;
+    }
+    
+    .tutorial-controls {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .tutorial-controls button {
+        flex: 1;
+        min-width: 70px;
+    }
+}
+

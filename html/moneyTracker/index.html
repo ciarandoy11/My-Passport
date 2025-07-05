@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Wallet Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Split Wallet Tracker</h1>
+            <p>Track your daily spend and reserve wallet</p>
+        </header>
+
+        <main>
+            <!-- Daily Spend Wallet Section -->
+            <section class="wallet-section">
+                <h2>Daily Spend Wallet</h2>
+                <div class="wallet-content">
+                    <div class="input-group">
+                        <label for="daily-earnings">Today's Earnings (€)</label>
+                        <input type="number" id="daily-earnings" placeholder="0.00" step="0.01" min="0">
+                        <button id="add-earnings">Add Earnings</button>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="daily-expense">Daily Expense (€)</label>
+                        <input type="number" id="daily-expense" placeholder="0.00" step="0.01" min="0">
+                        <button id="add-expense">Add Expense</button>
+                    </div>
+
+                    <div class="display-group">
+                        <div class="display-item">
+                            <span class="label">Daily Limit:</span>
+                            <span class="value" id="daily-limit">€0.00</span>
+                        </div>
+                        <div class="display-item">
+                            <span class="label">Total Spent:</span>
+                            <span class="value" id="total-spent">€0.00</span>
+                        </div>
+                        <div class="display-item">
+                            <span class="label">Remaining:</span>
+                            <span class="value" id="remaining-daily">€0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="daily-progress"></div>
+                        </div>
+                        <span class="progress-text" id="progress-percentage">0%</span>
+                    </div>
+
+                    <div class="transfer-section">
+                        <input type="number" id="transfer-amount" placeholder="Amount to transfer" step="0.01" min="0">
+                        <button id="transfer-to-reserve">Transfer to Reserve</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accounts Section -->
+            <section class="wallet-section">
+                <h2>Accounts</h2>
+                <div class="wallet-content">
+                    <div class="accounts-grid" id="accounts-grid"></div>
+
+                    <div class="account-actions">
+                        <div class="add-account-section">
+                            <input type="text" id="new-account-name" placeholder="Account name" maxlength="30">
+                            <button id="add-account">Add Account</button>
+                        </div>
+
+                        <div class="transfer-between-accounts">
+                            <h3>Transfer Between Accounts</h3>
+                            <div class="transfer-controls">
+                                <select id="from-account">
+                                    <option value="">From Account</option>
+                                </select>
+                                <select id="to-account">
+                                    <option value="">To Account</option>
+                                </select>
+                                <input type="number" id="transfer-between-amount" placeholder="Amount" step="0.01" min="0">
+                                <button id="transfer-between-accounts">Transfer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reserve Wallet Section -->
+            <section class="wallet-section">
+                <h2>Reserve Wallet</h2>
+                <div class="wallet-content">
+                    <div class="display-group">
+                        <div class="display-item large">
+                            <span class="label">Reserve Balance:</span>
+                            <span class="value" id="reserve-balance">€0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="reserve-actions">
+                        <input type="number" id="withdraw-amount" placeholder="Amount to withdraw" step="0.01" min="0">
+                        <button id="withdraw-from-reserve" class="danger">Withdraw from Reserve</button>
+                    </div>
+
+                    <div class="reserve-history">
+                        <h3>Reserve Growth</h3>
+                        <div class="history-chart" id="reserve-chart">
+                            <div class="chart-placeholder">Reserve history will appear here</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reset Section -->
+            <section class="reset-section">
+                <button id="reset-daily" class="secondary">Reset Daily Spend</button>
+                <button id="clear-all-data" class="danger">Clear All Data</button>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

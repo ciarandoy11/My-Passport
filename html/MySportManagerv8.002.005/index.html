@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Sport Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=8.002.004">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Root colors */
+    :root {
+      --primary-blue: #007BFF;
+      --dark-blue: #0056b3;
+      --black: #000000;
+      --light-grey: #f5f5f5;
+      --white: #ffffff;
+      --highlight-red: #cb0c1f;
+      --highlight-green: #28a745;
+    }
+
+    /* Reset and body */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            overflow-x: hidden;
+            animation: backgroundAnimation 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: left; }
+            100% { background-position: right; }
+        }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      color: var(--white);
+      padding: 30px 20px;
+      text-align: center;
+      animation: slideDown 1s ease-out forwards;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      color: var(--white);
+      margin-bottom: 10px;
+      animation: floatText 3s ease-in-out infinite alternate;
+    }
+
+    header i {
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: var(--white);
+      margin: 30px 15px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: all 0.8s ease-out;
+    }
+
+    section.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    section h2 {
+      color: var(--primary-blue);
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .feature {
+      background-color: var(--light-grey);
+      padding: 20px;
+      border-radius: 12px;
+      transition: transform 0.4s, box-shadow 0.4s;
+      animation: subtlePulse 5s infinite alternate;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Call to action buttons */
+    .cta-buttons {
+      margin-top: 40px;
+    }
+
+    .cta-buttons a, .button-group button {
+      text-decoration: none;
+      padding: 15px 35px;
+      border-radius: 30px;
+      background-color: var(--primary-blue);
+      color: var(--white);
+      font-weight: bold;
+      margin: 10px;
+      display: inline-block;
+      transition: background-color 0.3s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .cta-buttons a:hover, .button-group button:hover {
+      background-color: var(--dark-blue);
+      transform: scale(1.05);
+    }
+
+    .button-group {
+      margin-top: 30px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    /* Animations */
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes floatText {
+      from { transform: translateY(0); }
+      to { transform: translateY(8px); }
+    }
+
+    @keyframes subtlePulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.02); }
+    }
+
+    /* Highlight classes */
+    .highlight {
+      font-weight: bold;
+      color: var(--primary-blue);
+    }
+    .highlight-red {
+      font-weight: bold;
+      color: var(--highlight-red);
+    }
+    .highlight-green {
+      font-weight: bold;
+      color: var(--highlight-green);
+    }
+
+    /* Header buttons container */
+.header-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Header button style */
+.header-button {
+    z-index: 1;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  background-color: var(--white);
+  color: var(--primary-blue);
+  font-weight: bold;
+  border: 2px solid var(--primary-blue);
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.header-button:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .header-buttons {
+    top: 10px;
+    right: 20%;
+    margin-bottom: 20px;
+  }
+  header h1 {
+    font-size: 2.2rem;
+  }
+  header p {
+    font-size: 1.1rem;
+  }
+}
+  </style>
+
+  <script>
+    // Scroll reveal effect
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          } else {
+            entry.target.classList.remove('active');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-buttons">
+          <a href="login.php" class="header-button">Login</a>
+          <a href="signup.php" class="header-button">Sign Up</a>
+        </div><br>
+        <h1>My Sport Manager</h1>
+        <i>Your Sports Club's Best Ally: My Sport Manager!</i>
+      </header>          
+
+<section>
+  <h2>All-in-One Club Management</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>Timetables & Training</h3>
+      <p>Organize sessions, matches, and events effortlessly with our dynamic scheduler.</p>
+    </div>
+    <div class="feature">
+      <h3>Memberships & Payments</h3>
+      <p>Manage member registrations, track payments, and keep everything organized.</p>
+    </div>
+    <div class="feature">
+      <h3>Person on Duty (POD)</h3>
+      <p>Auto-assign duties to keep your club running smoothly and fairly.</p>
+    </div>
+  </div>
+  <div class="cta-buttons">
+    <a href="signup.php">Get Started</a>
+    <a href="#learn-more">Learn More</a>
+  </div>
+</section>
+
+<section>
+  <h2>Fundraise the Fun Way</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>Interactive Games</h3>
+      <p>Engage members with Bingo, Lotto, Raffles, and AI-powered games like Connect 4 and Snake Duel!</p>
+    </div>
+    <div class="feature">
+      <h3>90% Direct to Your Club</h3>
+      <p>Keep 90% of the ai powered fundraising proceeds — simple, transparent, and fair.</p>
+    </div>
+    <div class="feature">
+      <h3>Mobile-Friendly</h3>
+      <p>Play and manage games from any device, anywhere.</p>
+    </div>
+  </div>
+  <div class="cta-buttons">
+    <a href="signup.php">Start Fundraising</a>
+  </div>
+</section>
+
+<section>
+  <h2>Easy to Use Dashboard</h2>
+  <p><span class="highlight">My Sport Manager</span> is designed for simplicity and control. Manage your info, view timetables, swap POD duties and much more — right at your fingertips!</p>
+  <div class="cta-buttons">
+    <a href="signup.php">Join Today</a>
+  </div>
+</section>
+
+<section id="learn-more">
+  <h2>Features for Parents and Guardians</h2>
+  <ul style="text-align:left; max-width:800px; margin:auto;">
+    <li><span class="highlight">Update Personal Info:</span> Always stay up to date.</li>
+    <li><span class="highlight">Manage Children's Info:</span> Add or edit athlete profiles.</li>
+    <li><span class="highlight">POD Assignments:</span> View and swap duty roles.</li>
+    <li><span class="highlight">Weekly Timetables:</span> Plan ahead effortlessly.</li>
+  </ul>
+  <div class="cta-buttons">
+    <a href="signup.php">Get Started Today!</a>
+  </div>
+</section>
+
+<section>
+  <h2>Features for Clubs</h2>
+  <ul style="text-align:left; max-width:800px; margin:auto;">
+    <li><span class="highlight">Full Member Management</span></li>
+    <li><span class="highlight">Customizable Subscriptions</span></li>
+    <li><span class="highlight">Event Scheduling Tools</span></li>
+    <li><span class="highlight">POD Automation System</span></li>
+    <li><span class="highlight">Fundraising Suite</span></li>
+    <li><span class="highlight">Club Finance Management</span></li>
+    <li><span class="highlight">Communication Tools</span></li>
+  </ul>
+  <div class="cta-buttons">
+    <a href="signup.php">Get Started Today!</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 My Sport Manager. All rights reserved.
+</footer>
+
+</body>
+</html>
